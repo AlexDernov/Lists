@@ -33,7 +33,7 @@ public class Sack {
         for(int j = 0, j< newSack.length; j++) {
         for (int i = 0; i < sack.length; i++) {
             while(i<index) {
-               newSack[i] = sack[i]
+               newSack[j] = sack[i]
             }
         }}
     }

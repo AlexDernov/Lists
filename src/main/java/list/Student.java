@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Student {
- private String firstName;
-   private String lastName;
+    private String firstName;
+    private String lastName;
     private int studentId;
     List<Course> newCourse;
 
@@ -25,7 +25,7 @@ public class Student {
 
     }
 
-    public void addCourse(Course course){
+    public void addCourse(Course course) {
         newCourse.add(course);
     }
 
