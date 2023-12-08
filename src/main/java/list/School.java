@@ -1,34 +1,43 @@
 package list;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class School {
-   private List<Student> students = new ArrayList<>();
-    public void addStudent(Student newStudent){
-        students.add(newStudent);
-    }
-    public void removeStudentById(int id){
-        students.remove(findStudentById(id));
-    }
-    public List<Course> studentsCourseById(int id){
-        Student student = findStudentById(id);
-        return student.getNewCourse();
+    private Map<Integer, Student> students = new HashMap<>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        School school = (School) o;
+        return Objects.equals(students, school.students);
     }
 
-    public Student findStudentById(int id){
-        for(Student student : students) {
-            if(student.getStudentId() == id){
-                return student;
-            }
+    @Override
+    public int hashCode() {
+        return Objects.hash(students);
+    }
 
-        }return null;
+    public void addStudent(Student newStudent) {
+        students.put(newStudent.getStudentId(), newStudent);
+
+    }
+
+    public void removeStudentById(int id) {
+        students.remove(id);
+
+    }
+
+    public List<Course> getCoursesByStudentId(int id) {
+        return students.get(id).getCourses();
+    }
+
+    public Student findStudentById(int id) {
+        return students.get(id);
     }
 
     @Override
     public String toString() {
-        return "School:\n" +
-                "students=" + students +
-                '\n';
+        return "School{" + "students=" + students + '}';
     }
 }

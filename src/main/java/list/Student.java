@@ -2,47 +2,49 @@ package list;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Student {
     private String firstName;
     private String lastName;
     private int studentId;
-    List<Course> newCourse;
+    List<Course> courses;
 
-    public List<Course> getNewCourse() {
-        return newCourse;
-    }
-
-    public void setNewCourse(List<Course> newCourse) {
-        this.newCourse = newCourse;
+    public List<Course> getCourses() {
+        return courses;
     }
 
     public Student(String firstName, String lastName, int studentId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.studentId = studentId;
-        this.newCourse = new ArrayList<>();
+        this.courses = new ArrayList<>();
 
     }
 
     public void addCourse(Course course) {
-        newCourse.add(course);
+        courses.add(course);
     }
 
-    public int getStudentId() {
-        return studentId;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return studentId == student.studentId && Objects.equals(firstName, student.firstName) && Objects.equals(lastName, student.lastName) && Objects.equals(courses, student.courses);
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, studentId, courses);
     }
 
     @Override
     public String toString() {
-        return "Student:\n" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", studentId=" + studentId +
-                '\n';
+        return "Student{" + "firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", studentId=" + studentId + ", courses=" + courses + '}';
+    }
+
+    public int getStudentId() {
+        return studentId;
     }
 }

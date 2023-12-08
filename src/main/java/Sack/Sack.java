@@ -27,14 +27,14 @@ public class Sack {
         sack = Arrays.copyOf(sack, sack.length - 1);
     }
 
-    public void removeByIndex(int index) {
-
-        int[] newSack = new int[sack.length - 1];
-        for(int j = 0, j< newSack.length; j++) {
-        for (int i = 0; i < sack.length; i++) {
-            while(i<index) {
-               newSack[j] = sack[i]
-            }
-        }}
-    }
+//    public void removeByIndex(int index) {
+//
+//        int[] newSack = new int[sack.length - 1];
+//        for(int j = 0, j< newSack.length; j++) {
+//        for (int i = 0; i < sack.length; i++) {
+//            while(i<index) {
+//               newSack[j] = sack[i];
+//            }
+//        }}
+//    }
 }
